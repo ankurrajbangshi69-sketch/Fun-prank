@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessing System...</title>
+<style>
+    body {
+        margin: 0;
+        background: black;
+        color: #00ff00;
+        font-family: Consolas, monospace;
+        overflow: hidden;
+        padding: 20px;
+    }
+    #terminal {
+        white-space: pre-wrap;
+        font-size: 18px;
+    }
+    .blink {
+        animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+<div id="terminal"></div>
+
+<script>
+const lines = [
+"Initializing secure connection...",
+"Connecting to satellite...",
+"Bypassing firewall...",
+"Access granted.",
+"Downloading memes...",
+"Stealing... absolutely nothing 😎",
+"",
+"😂 Relax!",
+"This was just a harmless prank.",
+"Have an awesome day!"
+];
+
+let i = 0;
+const terminal = document.getElementById("terminal");
+
+function typeLine() {
+    if (i < lines.length) {
+        terminal.innerHTML += lines[i] + "\n";
+        i++;
+        setTimeout(typeLine, 800);
+    } else {
+        terminal.innerHTML += '<span class="blink">█</span>';
+    }
+}
+
+typeLine();
+</script>
+
+</body>
+</html>
